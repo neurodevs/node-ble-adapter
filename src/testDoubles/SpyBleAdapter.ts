@@ -1,12 +1,12 @@
-import { BleScanner } from '@neurodevs/node-ble-scanner'
+import { Peripheral } from '@abandonware/noble'
 import BleAdapterImpl from '../BleAdapter'
 
 export default class SpyBleAdapter extends BleAdapterImpl {
-    public constructor(scanner: BleScanner) {
-        super(scanner)
+    public constructor(peripheral: Peripheral) {
+        super(peripheral)
     }
 
-    public getBleScanner() {
-        return this.scanner
+    public getPeripheral() {
+        return this.peripheral
     }
 }

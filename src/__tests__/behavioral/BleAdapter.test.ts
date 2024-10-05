@@ -1,16 +1,28 @@
-import AbstractSpruceTest, { test, assert } from '@sprucelabs/test-utils'
+import AbstractSpruceTest, {
+    test,
+    assert,
+    errorAssert,
+    generateId,
+} from '@sprucelabs/test-utils'
+import { BleScannerImpl, FakeBleScanner } from '@neurodevs/node-ble-scanner'
 import BleAdapterImpl from '../../BleAdapter'
 import SpyBleAdapter from '../../testDoubles/SpyBleAdapter'
 
 export default class BleAdapterTest extends AbstractSpruceTest {
     private static instance: SpyBleAdapter
+    private static uuid: string
 
     protected static async beforeEach() {
         await super.beforeEach()
 
-        BleAdapterImpl.Class = SpyBleAdapter
+        this.uuid = generateId()
 
-        this.instance = this.BleAdapter()
+        BleAdapterImpl.Class = SpyBleAdapter
+        BleScannerImpl.Class = FakeBleScanner
+
+        FakeBleScanner.setFakedPeripherals([this.uuid])
+
+        this.instance = await this.BleAdapter(this.uuid)
     }
 
     @test()
@@ -19,12 +31,23 @@ export default class BleAdapterTest extends AbstractSpruceTest {
     }
 
     @test()
-    protected static async createsBleScanner() {
-        const scanner = this.instance.getBleScanner()
-        assert.isTruthy(scanner)
+    protected static async throwsWithMissingRequiredOptions() {
+        const err = await assert.doesThrowAsync(async () => {
+            // @ts-ignore
+            await this.BleAdapter()
+        })
+        errorAssert.assertError(err, 'MISSING_PARAMETERS', {
+            parameters: ['uuid'],
+        })
     }
 
-    private static BleAdapter() {
-        return BleAdapterImpl.Create() as SpyBleAdapter
+    @test()
+    protected static async discoversPeripheralOnInstantiation() {
+        const peripheral = this.instance.getPeripheral()
+        assert.isTruthy(peripheral)
+    }
+
+    private static async BleAdapter(uuid: string) {
+        return (await BleAdapterImpl.Create(uuid)) as SpyBleAdapter
     }
 }

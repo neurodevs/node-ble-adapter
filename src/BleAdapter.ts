@@ -1,17 +1,23 @@
-import { BleScanner, BleScannerImpl } from '@neurodevs/node-ble-scanner'
+import { assertOptions } from '@sprucelabs/schema'
+import { Peripheral } from '@abandonware/noble'
+import { BleScannerImpl } from '@neurodevs/node-ble-scanner'
 
 export default class BleAdapterImpl implements BleAdapter {
     public static Class?: BleAdapterConstructor
 
-    protected scanner: BleScanner
+    protected peripheral: Peripheral
 
-    protected constructor(scanner: BleScanner) {
-        this.scanner = scanner
+    protected constructor(peripheral: Peripheral) {
+        this.peripheral = peripheral
     }
 
-    public static Create() {
+    public static async Create(uuid: string) {
+        assertOptions({ uuid }, ['uuid'])
+
         const scanner = this.BleScanner()
-        return new (this.Class ?? this)(scanner)
+        const [peripheral] = await scanner.scanForPeripherals([uuid])
+
+        return new (this.Class ?? this)(peripheral)
     }
 
     private static BleScanner() {
@@ -21,4 +27,4 @@ export default class BleAdapterImpl implements BleAdapter {
 
 export interface BleAdapter {}
 
-export type BleAdapterConstructor = new (scanner: BleScanner) => BleAdapter
+export type BleAdapterConstructor = new (peripheral: Peripheral) => BleAdapter
