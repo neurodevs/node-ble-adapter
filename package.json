@@ -1,6 +1,6 @@
 {
   "name": "@neurodevs/node-ble-adapter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "build/index.js",
   "repository": "https://github.com/neurodevs/node-ble-adapter.git",
   "scripts": {
@@ -62,5 +62,8 @@
     "moduleNameMapper": {
       "^#spruce/(.*)$": "<rootDir>/build/.spruce/$1"
     }
+  },
+  "dependencies": {
+    "@neurodevs/node-ble-scanner": "^0.0.1"
   }
 }
