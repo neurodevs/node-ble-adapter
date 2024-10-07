@@ -13,14 +13,15 @@ export default class BleAdapterImpl implements BleAdapter {
 
     public static async Create(uuid: string) {
         assertOptions({ uuid }, ['uuid'])
-        const peripheral = await this.loadPeripheral(uuid)
+        const peripheral = await this.connectToPeripheral(uuid)
         return new (this.Class ?? this)(peripheral)
     }
 
-    private static async loadPeripheral(uuid: string) {
+    private static async connectToPeripheral(uuid: string) {
         const scanner = this.BleScanner()
         const peripheral = await scanner.scanForPeripherals(uuid)
-        return peripheral as Peripheral
+        await peripheral.connectAsync()
+        return peripheral
     }
 
     private static BleScanner() {

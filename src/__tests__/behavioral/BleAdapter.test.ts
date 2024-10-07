@@ -4,7 +4,11 @@ import AbstractSpruceTest, {
     errorAssert,
     generateId,
 } from '@sprucelabs/test-utils'
-import { BleScannerImpl, FakeBleScanner } from '@neurodevs/node-ble-scanner'
+import {
+    BleScannerImpl,
+    FakeBleScanner,
+    FakePeripheral,
+} from '@neurodevs/node-ble-scanner'
 import BleAdapterImpl from '../../BleAdapter'
 import SpyBleAdapter from '../../testDoubles/SpyBleAdapter'
 
@@ -42,9 +46,23 @@ export default class BleAdapterTest extends AbstractSpruceTest {
     }
 
     @test()
-    protected static async discoversPeripheralOnInstantiation() {
-        const peripheral = this.instance.getPeripheral()
-        assert.isTruthy(peripheral)
+    protected static async discoversPeripheralDuringCreate() {
+        assert.isTruthy(
+            this.peripheral,
+            'Should discover peripheral during Create!'
+        )
+    }
+
+    @test()
+    protected static async connectsToPeripheralDuringCreate() {
+        assert.isTruthy(
+            this.peripheral.didCallConnectAsync,
+            'Should connect to peripheral during Create!'
+        )
+    }
+
+    private static get peripheral() {
+        return this.instance.getPeripheral() as unknown as FakePeripheral
     }
 
     private static async BleAdapter(uuid: string) {
