@@ -678,13 +678,6 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@neurodevs/node-ble-scanner@^0.3.6":
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/@neurodevs/node-ble-scanner/-/node-ble-scanner-0.3.6.tgz#fd3348f62c68d79fb199db7d30df2333a983a7f1"
-  integrity sha512-qBDjkYrnb7hY8Fyl9KDpZKlu+r6EoGUWEjQZenj3X0nVSVL8Ulx7D86qSmoR/iUASNP2d2zObj0b/mfSv4IvjA==
-  dependencies:
-    "@abandonware/noble" "^1.9.2-25"
-
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -758,29 +751,29 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@sprucelabs/error@^6.0.434", "@sprucelabs/error@^6.0.449":
-  version "6.0.449"
-  resolved "https://registry.yarnpkg.com/@sprucelabs/error/-/error-6.0.449.tgz#172153138a360acc88928d9f6f1ba53125e9f81b"
-  integrity sha512-TeYjTNzhRsLUiQPwuQON7loDdb8Azjkjw80OtTggEW0ZOcqJUaVjUU4NFw58R64OR208r6mryAU0+PDBd0P9dA==
+"@sprucelabs/error@^6.0.434", "@sprucelabs/error@^6.0.450":
+  version "6.0.450"
+  resolved "https://registry.yarnpkg.com/@sprucelabs/error/-/error-6.0.450.tgz#e55777398b43ff02066a1a147696cffdbb22d25f"
+  integrity sha512-eZswr80qOFw3LrP/BfhIpBixDpy3nFCvWbEou8r7FYTJiTLFUZVa9RpsmVCGdsUCpfcxtQMcSYtxvaSUf31geA==
 
-"@sprucelabs/globby@^2.0.410":
-  version "2.0.410"
-  resolved "https://registry.yarnpkg.com/@sprucelabs/globby/-/globby-2.0.410.tgz#b6f2aace87b296f00f6eee737a4c97dfca6b2eba"
-  integrity sha512-Fx7mbG5WO+XhEM3OH1cSsJWsy3a1q2ze0nGbz2ybWxsWUn2RSFBn6IbNhgdc0RzWlcYxaVwlwIFF0olG8flanw==
+"@sprucelabs/globby@^2.0.411":
+  version "2.0.411"
+  resolved "https://registry.yarnpkg.com/@sprucelabs/globby/-/globby-2.0.411.tgz#e95ba6c3df9f608f70949896c4c701827eef717f"
+  integrity sha512-K4LjYPRRQNgWBVZfpEcU4JIuZYuPP4I2+PAEhXTM6KMZFA7wDOQAaO6CazdAlvSVPy/NYGBadmaxs9Ms6PQyOg==
   dependencies:
     globby "^11.0.4"
 
 "@sprucelabs/jest-json-reporter@^8.0.436":
-  version "8.0.449"
-  resolved "https://registry.yarnpkg.com/@sprucelabs/jest-json-reporter/-/jest-json-reporter-8.0.449.tgz#472acf13a1f4b664446ce6c180359fc965b23161"
-  integrity sha512-S2J/xllQ8nCSRwxm78iEpQAmwFXTDR/LR1ittYtZTHbMdYS5jeXs4V3oc/ZFC6CK3IRDlhhXcc9cIWaUEnQ2Jg==
+  version "8.0.450"
+  resolved "https://registry.yarnpkg.com/@sprucelabs/jest-json-reporter/-/jest-json-reporter-8.0.450.tgz#2f509e67033ffab6ef3340f9eba044d3f82a0a15"
+  integrity sha512-h3iBfQ+zOhYwVIg1UpQxFOmoGpJcwYza03ZorJixccoNCk3OaCT1JKCMrPM5Ph3lnYpCWIBMTqOwBgc3CRFeEQ==
 
 "@sprucelabs/resolve-path-aliases@^2.0.415":
-  version "2.0.428"
-  resolved "https://registry.yarnpkg.com/@sprucelabs/resolve-path-aliases/-/resolve-path-aliases-2.0.428.tgz#5064054becf53acd4d5ed958b0c534b3e52e81fd"
-  integrity sha512-Ob/E5vLdN/s86hbhzdpQeNBRCpKrRG7lwnE7pMYO8cIzan/IDRv363w5SWGyeHHMOvLFGXjk6K9VAwOEYNAKeQ==
+  version "2.0.429"
+  resolved "https://registry.yarnpkg.com/@sprucelabs/resolve-path-aliases/-/resolve-path-aliases-2.0.429.tgz#f0b1c0deabaa8be15b8721175e884ef9d2629cb5"
+  integrity sha512-TOIGMr0nN4x+mY25wwjQGHFfMu5Roe0mPbAObwfAMH7MsdrtMxrlT1ti2cj+XAO4ndIrm9p2bRtlcSngHsIIOQ==
   dependencies:
-    "@sprucelabs/globby" "^2.0.410"
+    "@sprucelabs/globby" "^2.0.411"
     chalk "^4.1.2"
     tsconfig-paths "^4.2.0"
     yargs "^17.7.2"
@@ -797,11 +790,11 @@
     just-safe-set "^4.2.1"
 
 "@sprucelabs/test-utils@^5.1.382", "@sprucelabs/test-utils@^5.1.385":
-  version "5.1.398"
-  resolved "https://registry.yarnpkg.com/@sprucelabs/test-utils/-/test-utils-5.1.398.tgz#b685a23b71aaec923a93c5e4a5ff837438f96e41"
-  integrity sha512-HXp1cDTemafl67La/M9eq5iLsGaylweVFWZ+U/gCUQJuFqoJ1zlNcrjSIrZeywz+KSkQwdKd4NG9IoIgY21BSg==
+  version "5.1.399"
+  resolved "https://registry.yarnpkg.com/@sprucelabs/test-utils/-/test-utils-5.1.399.tgz#4e031a56adc1636a3bf87c28913547306a59fc34"
+  integrity sha512-k97ZSo78pUVMjSkjTl6CWvASHkGuf9l6jjeIpIkf1Q/JjZewd/fufo8zqQcrw4j/PGKhs1Eouyk8W5NqoLID3Q==
   dependencies:
-    "@sprucelabs/error" "^6.0.449"
+    "@sprucelabs/error" "^6.0.450"
     deep-equal "^2.2.3"
     just-clone "^6.2.0"
     lodash "^4.17.21"
