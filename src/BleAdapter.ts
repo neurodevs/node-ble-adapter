@@ -20,7 +20,9 @@ export default class BleAdapterImpl implements BleAdapter {
 
     private static async loadPeripheral(uuid: string) {
         const scanner = this.BleScanner()
-        return (await scanner.scanForPeripherals(uuid)) as Peripheral
+        const peripheral = await scanner.scanForPeripherals(uuid)
+
+        return peripheral as Peripheral
     }
 
     private static BleScanner() {
